@@ -29,6 +29,7 @@ var peer = new Peer({
   host: 'vidpug.onrender.com',
   port: 443,
   secure:true,
+  path:'/',
   config: {
     'iceServers': [
       { url: 'stun:stun01.sipphone.com' },

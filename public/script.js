@@ -26,9 +26,8 @@ const user = prompt("Enter your gender 'male' or 'female'");
 
 /*Peer Configuration*/
 var peer = new Peer({
-  host: 'https://vidpug.onrender.com/',
+  host: 'vidpug.onrender.com',
   port: 443,
-  path: '/peerjs',
   secure:true,
   config: {
     'iceServers': [

@@ -28,7 +28,6 @@ io.on('connection',(socket)=>{
   //Join 
   socket.on('join-room',(peerID,user)=>{
     let pID = peerID
-    console.log(user)
     if(user == 'male')
     {
       let maleUser
@@ -69,7 +68,7 @@ io.on('connection',(socket)=>{
       }
       femaleUsers.push(femaleUser)
     }
-    console.log("mU:", maleUsers, "fU:", femaleUsers, "mR:", maleRooms,"fR:", femaleRooms,"oR:", occupiedRooms);
+    // console.log("mU:", maleUsers, "fU:", femaleUsers, "mR:", maleRooms,"fR:", femaleRooms,"oR:", occupiedRooms);
       setTimeout(()=>{
         socket.to(roomID).emit("user-connected", pID);
       }, 1000)
@@ -124,7 +123,7 @@ io.on('connection',(socket)=>{
       femaleUsers.splice(femaleUsers.findIndex(a => a.soc === socket.id) , 1)
       socket.to(uR).emit("lost")
     }
-    console.log("mU:", maleUsers, "fU:", femaleUsers, "mR:", maleRooms,"fR:", femaleRooms,"oR:", occupiedRooms);
+    // console.log("mU:", maleUsers, "fU:", femaleUsers, "mR:", maleRooms,"fR:", femaleRooms,"oR:", occupiedRooms);
     
   });
 })

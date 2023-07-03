@@ -50,10 +50,10 @@
 }
 
 video {
-  height: 200px;
+  height: 400px;
   border-radius: 1rem;
   margin: 0.5rem;
-  width: 100%;
+  width: 350px;
   object-fit: cover;
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);

@@ -12,17 +12,18 @@ videoGrid1.append(otherVideo)
 
 myVideo.muted = true;
 
-// let random = Math.round(Math.random())
-// let user
-// if(random == 1)
-// {
-//   user = 'male'
-// }
-// else
-// {
-//   user = 'female'
-// }
-const user = prompt("Enter your gender 'male' or 'female'");
+// const user = prompt("Enter your gender 'male' or 'female'");
+let random = Math.round(Math.random())
+let user
+let coun
+if(random == 1){ user = 'male'}
+else{user = 'female'}
+random = Math.round(Math.random())
+if(random == 1){ coun = 'IN'}
+else{coun = 'BR'}
+  
+
+
 
 /*Peer Configuration*/
 var peer = new Peer({
@@ -85,6 +86,10 @@ navigator.mediaDevices
     socket.on("user-connected", (userId) => {
       connectToNewUser(userId, stream);
     });
+
+    socket.on("activeUsers", (activeUsers) => {
+      console.log(activeUsers)
+    });
   });
 
 const connectToNewUser = (userId, stream) => {
@@ -100,7 +105,7 @@ const connectToNewUser = (userId, stream) => {
 //calling another user
 peer.on("open", (id) => {
   console.log('my id is' + id);
-  socket.emit("join-room", id,user);
+  socket.emit("join-room", id,user,"IN",coun);
 });
 
 const addVideoStream = (video, stream) => {
